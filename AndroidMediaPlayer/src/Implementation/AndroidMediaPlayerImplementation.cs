@@ -67,7 +67,7 @@ namespace CYINT.XPlatformMediaPlayer
             if(GetPlayerState() == PLAYER_STATE_PLAYING && GetSpecificPlayerObject().IsPlaying)
                 GetSpecificPlayerObject().Stop();
             
-            if (GetPlayerState() != PLAYER_STATE_NONE);
+            if (GetPlayerState() != PLAYER_STATE_NONE)
                 SetPlayerState(PLAYER_STATE_NONE);
 
             GetSpecificPlayerObject().Reset();
