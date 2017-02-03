@@ -13,4 +13,8 @@
     <copyright>Copyright 2017</copyright>
     <tags>Media Player, Cross Platform Media Player, Video Player, Audio Player</tags>
   </metadata>
+  <files>
+        <!-- Android reference assemblies -->
+        <file src="..\AndroidMediaPlayer\bin\Release\AndroidMediaPlayer.dll" target="lib\monoandroid\AndroidMediaPlayer.dll" />  
+  </files>
 </package>
