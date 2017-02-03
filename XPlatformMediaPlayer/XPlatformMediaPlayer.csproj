@@ -37,7 +37,7 @@
   <ItemGroup>
     <Compile Include="src\Interfaces\IXPlatformMediaObject.cs" />
     <Compile Include="src\Interfaces\IXPlatformMediaPlayer.cs" />
-    <Compile Include="src\Implementaton\XPlatformMediaPlayerImplementation.cs" />
+    <Compile Include="XPlatformMediaPlayerImplementation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
