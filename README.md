@@ -2,7 +2,7 @@
 
 A cross-platform portable class library and abstract implementation for a Xamarin media player intended to serve as the base class for XPlatformVideoPlayer and XPlatformAudioPlayer
 
-NuGet Package at https://www.nuget.org/packages/CYINT.XPlatformMediaPlayer/0.0.1-alpha
+NuGet Package at https://www.nuget.org/packages/CYINT.XPlatformMediaPlayer
     
 
 		Install-Package CYINT.XPlatformMediaPlayer -Pre 
