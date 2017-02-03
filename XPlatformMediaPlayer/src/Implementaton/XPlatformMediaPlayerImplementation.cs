@@ -10,8 +10,8 @@ namespace CYINT.XPlatformMediaPlayer
 
     public abstract class XPlatformMediaPlayerImplementation : IXPlatformMediaPlayer
     {
-        const int MEDIA_AUDIO = 1;
-        const int MEDIA_VIDEO = 2;
+        public const int MEDIA_AUDIO = 1;
+        public const int MEDIA_VIDEO = 2;
 
         public const int PLAYER_STATE_NONE = 0;
         public const int PLAYER_STATE_LOADING = 1;
@@ -19,7 +19,6 @@ namespace CYINT.XPlatformMediaPlayer
         public const int PLAYER_STATE_STOPPED = 3;
         public const int PLAYER_STATE_ERROR = 4;
 
-        protected IXPlatformMediaPlayer _mediaPlayer;
         protected int _mediaType;
         protected string _resource;
         protected bool _loopMedia;

@@ -15,24 +15,25 @@ namespace CYINT.XPlatformMediaPlayer
 
     public abstract class AndroidMediaPlayerImplementation : XPlatformMediaPlayerImplementation
     {
-        protected MediaPlayerObject _mediaPlayerObject;
-        public abstract void LoadMedia();
-        public abstract void OnError();
-        public abstract void OnCompletion();
+        public abstract MediaPlayerObject GetSpecificPlayerObject();
+        public abstract MediaPlayerObject CreateSpecificPlayerObject();
 
         public override IXPlatformMediaObject GetMediaPlayer()
         {
-            return _mediaPlayerObject;
-        }
+            MediaPlayerObject mediaPlayerObject = GetSpecificPlayerObject();
+            if(mediaPlayerObject == null)
+            {
+                mediaPlayerObject = CreateSpecificPlayerObject();
+                mediaPlayerObject.Prepared += OnPrepared; 
+                mediaPlayerObject.Completion += OnCompletion;
+                mediaPlayerObject.Error += OnError;             
+            }
 
-        public override void SetMediaPlayer(IXPlatformMediaObject mediaPlayerObject)
-        {
-            _mediaPlayerObject = (MediaPlayerObject)mediaPlayerObject;
+            return mediaPlayerObject;       
         }
 
         public void OnPrepared(object sender, EventArgs e)
         {
-
             if(GetStartPosition() > 0)
                 GetMediaPlayer().SeekTo((int)GetStartPosition());
 
@@ -63,13 +64,13 @@ namespace CYINT.XPlatformMediaPlayer
 
         public override void ResetResources()
         {           
-            if(GetPlayerState() == XPlatformMediaPlayerImplementation.PLAYER_STATE_PLAYING && _mediaPlayerObject.IsPlaying)
-                _mediaPlayerObject.Stop();
+            if(GetPlayerState() == XPlatformMediaPlayerImplementation.PLAYER_STATE_PLAYING && GetSpecificPlayerObject().IsPlaying)
+                GetSpecificPlayerObject().Stop();
             
             if (GetPlayerState() != XPlatformMediaPlayerImplementation.PLAYER_STATE_NONE);
                 SetPlayerState(XPlatformMediaPlayerImplementation.PLAYER_STATE_NONE);
 
-            _mediaPlayerObject.Reset();
+            GetSpecificPlayerObject().Reset();
         }
       
     }
