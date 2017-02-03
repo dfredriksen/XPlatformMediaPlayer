@@ -41,34 +41,34 @@ namespace CYINT.XPlatformMediaPlayer
             SetMediaLength(GetMediaPlayer().GetDuration());
             if(GetPlayFlag())
             {
-                SetPlayerState(XPlatformMediaPlayerImplementation.PLAYER_STATE_PLAYING);
+                SetPlayerState(PLAYER_STATE_PLAYING);
                 GetMediaPlayer().Play();
             }
             else
             {
-                SetPlayerState(XPlatformMediaPlayerImplementation.PLAYER_STATE_STOPPED);
+                SetPlayerState(PLAYER_STATE_STOPPED);
             }
         }
 
         public void OnCompletion(object sender, EventArgs e)
         {
-            SetPlayerState(XPlatformMediaPlayerImplementation.PLAYER_STATE_STOPPED);
+            SetPlayerState(PLAYER_STATE_STOPPED);
             GetMediaPlayer().SeekTo(0);
         }
 
         public void OnError(object sender, MediaPlayerObject.ErrorEventArgs e)
         {
-            SetPlayerState(XPlatformMediaPlayerImplementation.PLAYER_STATE_ERROR);
+            SetPlayerState(PLAYER_STATE_ERROR);
             throw new AndroidMediaPlayerImplementationException("Media player error: " + e.What );
         }
 
         public override void ResetResources()
         {           
-            if(GetPlayerState() == XPlatformMediaPlayerImplementation.PLAYER_STATE_PLAYING && GetSpecificPlayerObject().IsPlaying)
+            if(GetPlayerState() == PLAYER_STATE_PLAYING && GetSpecificPlayerObject().IsPlaying)
                 GetSpecificPlayerObject().Stop();
             
-            if (GetPlayerState() != XPlatformMediaPlayerImplementation.PLAYER_STATE_NONE);
-                SetPlayerState(XPlatformMediaPlayerImplementation.PLAYER_STATE_NONE);
+            if (GetPlayerState() != PLAYER_STATE_NONE);
+                SetPlayerState(PLAYER_STATE_NONE);
 
             GetSpecificPlayerObject().Reset();
         }

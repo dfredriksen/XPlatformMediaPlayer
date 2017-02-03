@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CYINT.XPlatformMediaPlayer</id>
+    <version>0.0.1-alpha</version>
+    <title>XPlatformMediaPlayer</title>
+    <authors>Daniel Fredriksen</authors>
+    <owners>CYINT Technologies</owners>
+    <projectUrl>https://www.github.com/dfredriksen/XPlatformMediaPlayer</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A cross-platform portable class library and abstract implementation for a Xamarin media player intended to serve as the base class for XPlatformVideoPlayer and XPlatformAudioPlayer</description>
+    <releaseNotes>Implemented Android. ToDo: iOS, UWP</releaseNotes>
+    <copyright>Copyright 2017</copyright>
+    <tags>Media Player, Cross Platform Media Player, Video Player, Audio Player</tags>
+  </metadata>
+</package>
