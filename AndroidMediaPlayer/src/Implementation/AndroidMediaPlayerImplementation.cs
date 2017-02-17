@@ -57,9 +57,10 @@ namespace CYINT.XPlatformMediaPlayer
         }
 
         public void OnError(object sender, MediaPlayerObject.ErrorEventArgs e)
-        {
+        {                
             SetPlayerState(PLAYER_STATE_ERROR);
-            throw new AndroidMediaPlayerImplementationException("Media player error: " + e.What );
+            ResetResources();
+            //throw new AndroidMediaPlayerImplementationException("Media player error: " + e.What );
         }
 
         public override void ResetResources()
@@ -71,7 +72,7 @@ namespace CYINT.XPlatformMediaPlayer
                 SetPlayerState(PLAYER_STATE_NONE);
 
             GetSpecificPlayerObject().Reset();
-        }
+        } 
       
     }
 
